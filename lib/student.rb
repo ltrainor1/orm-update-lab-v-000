@@ -45,16 +45,16 @@ end
 
 def save
   existing = Student.find_by_name(self.name)
-  if existing 
-    self.update 
-  else 
+  if existing
+    self.update
+  else
       sql = <<-SQL
       INSERT INTO students (name, grade)
       VALUES (?,?)
       SQL
       DB[:conn].execute(sql, self.name, self.grade)
       self.id = DB[:conn].execute("SELECT MAX(id) FROM students")[0][0]
-  end 
+  end
 end
 
 def self.create(name, grade)
@@ -70,10 +70,7 @@ def self.new_from_db(row)
 end
 
 def update
-  existing = Student.find_by_name(self.name)
-  if !existing
-    new = Student.create(self.name, self.grade)
-  end
+
     sql = <<-SQL
     UPDATE students SET name = ?
     WHERE id = ?
