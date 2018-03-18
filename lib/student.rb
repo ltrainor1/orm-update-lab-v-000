@@ -32,9 +32,13 @@ def self.find_by_name(name)
     WHERE NAME = ?
   SQL
   row = DB[:conn].execute(sql, name)[0]
+  if row == nil
+    nil
+  else
     @@all.detect do |student|
       student.name == row[1]
     end
+  end
 end
 
 def save
