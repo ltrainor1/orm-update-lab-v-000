@@ -39,7 +39,7 @@ def self.find_by_name(name)
       student.name == row[1]
     end
     student.id = row[0]
-    student
+    student 
   end
 end
 
@@ -68,7 +68,7 @@ end
 
 def update
   existing = Student.find_by_name(self.name)
-  if existing == []
+  if !existing 
     new = Student.create(self.name, self.grade)
   end
     sql = <<-SQL
