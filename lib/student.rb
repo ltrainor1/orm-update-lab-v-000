@@ -34,7 +34,7 @@ def self.find_by_name(name)
   row = DB[:conn].execute(sql, name)[0]
     @@all.detect do |student|
       student.name == row[1]
-    end 
+    end
 end
 
 def save
