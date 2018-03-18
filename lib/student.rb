@@ -44,7 +44,7 @@ def self.find_by_name(name)
 end
 
 def save
-
+    binding.pry
       sql = <<-SQL
       INSERT INTO students (name, grade)
       VALUES (?,?)
