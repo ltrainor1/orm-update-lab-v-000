@@ -35,9 +35,11 @@ def self.find_by_name(name)
   if row == nil
     nil
   else
-    @@all.detect do |student|
+    student = @@all.detect do |student|
       student.name == row[1]
     end
+    student.id = row[0]
+    student 
   end
 end
 
