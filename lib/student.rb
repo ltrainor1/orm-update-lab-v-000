@@ -46,14 +46,14 @@ end
 def save
     existing = DB[:conn].execute("SELECT * FROM students WHERE id = #{self.id}")[0]
     binding.pry
-  else
+
       sql = <<-SQL
       INSERT INTO students (name, grade)
       VALUES (?,?)
       SQL
       DB[:conn].execute(sql, self.name, self.grade)
       self.id = DB[:conn].execute("SELECT MAX(id) FROM students")[0][0]
-  end
+
 end
 
 def self.create(name, grade)
