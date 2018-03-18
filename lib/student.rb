@@ -55,7 +55,7 @@ def save
       DB[:conn].execute(sql, self.name, self.grade)
       self.id = DB[:conn].execute("SELECT MAX(id) FROM students")[0][0]
   end
-  self 
+  self
 end
 
 def self.create(name, grade)
