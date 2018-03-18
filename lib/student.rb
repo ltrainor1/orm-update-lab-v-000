@@ -44,8 +44,6 @@ def self.find_by_name(name)
 end
 
 def save
-    existing = DB[:conn].execute("SELECT * FROM students WHERE id = #{self.id}")[0]
-    binding.pry
 
       sql = <<-SQL
       INSERT INTO students (name, grade)
