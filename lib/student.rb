@@ -44,10 +44,7 @@ def self.find_by_name(name)
 end
 
 def save
-  existing = Student.find_by_name(self.name)
-  if existing
-    self.update
-    DB[:conn].execute("SELECT * FROM students WHERE id = #{self.id}")
+    existing = DB[:conn].execute("SELECT * FROM students WHERE id = #{self.id}")[0]
   else
       sql = <<-SQL
       INSERT INTO students (name, grade)
