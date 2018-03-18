@@ -39,7 +39,7 @@ def self.find_by_name(name)
       student.name == row[1]
     end
     student.id = row[0]
-    student 
+    student
   end
 end
 
